@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://c1pq0ygfl084f"]
+[gd_scene load_steps=3 format=3 uid="uid://c1pq0ygfl084f"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://scene/control.gd" id="1_wywmi"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_0hngy"]
+
+[node name="FirstLevel" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+script = ExtResource("1_wywmi")
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 643.0
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.2028, 0.182, 0.26, 1)
+position = Vector2(575.75, 320.25)
+scale = Vector2(1152.5, 641.5)
+texture = SubResource("CanvasTexture_0hngy")
