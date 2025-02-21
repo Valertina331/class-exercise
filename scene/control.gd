@@ -21,6 +21,8 @@ func generate_grid():
 func tileplacement(x,y):
 	var tile = TILE_SCENE.instantiate()
 	tile.connect("pressed", Callable(self, "_on_tile_pressed").bind(x, y))
+	
+	print(x,y)
 	return tile
 
 func _on_tile_pressed(row, col):

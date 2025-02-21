@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://byype48p04k5h"]
+[gd_scene load_steps=19 format=3 uid="uid://byype48p04k5h"]
 
 [ext_resource type="Texture2D" uid="uid://dhndn4hlfwadk" path="res://assets/Mystery Pack 47.png" id="1_1thx3"]
 [ext_resource type="Script" path="res://scene/tile.gd" id="1_k2rmp"]
@@ -116,8 +116,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukqoc"]
-
 [node name="Tile" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -131,7 +129,20 @@ script = ExtResource("1_k2rmp")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2qau5")
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+show_behind_parent = true
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-shape = SubResource("RectangleShape2D_ukqoc")
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="AnimatedSprite2D/Button" to="." method="_on_button_pressed"]
