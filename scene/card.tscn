@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://2ikkelklmfpt"]
+[gd_scene load_steps=19 format=3 uid="uid://m2fx77nh5fpk"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_bjkk3"]
 [ext_resource type="Texture2D" uid="uid://dhndn4hlfwadk" path="res://assets/Mystery Pack 47.png" id="1_tjugn"]
