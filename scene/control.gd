@@ -3,22 +3,26 @@ extends Control
 const GRID_SIZE = 8
 const TILE_SCENE = preload("res://scene/Tile.tscn")
 
+
 var grid = []
 
 func _ready():
 	generate_grid()
-
+	
 func generate_grid():
 	for row in range(GRID_SIZE):
 		grid.append([])
 		for col in range(GRID_SIZE):
-			var tile = TILE_SCENE.instantiate()
-			var random_type = randi() % 5
-			tile.set_type(random_type)
-			tile.connect("pressed", Callable(self, "_on_tile_pressed").bind(row, col))
+			var tile = tileplacement(row, col)
 			grid[row].append(tile)
-			$GridContainer.add_child(tile)
+			%GridContainer.add_child(tile)
 			
+
+func tileplacement(x,y):
+	var tile = TILE_SCENE.instantiate()
+	tile.connect("pressed", Callable(self, "_on_tile_pressed").bind(x, y))
+	return tile
+
 func _on_tile_pressed(row, col):
 	print("Clicked tile at: ", row, col)
 	

@@ -6,20 +6,42 @@
 
 [node name="FirstLevel" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 647.0
-script = ExtResource("1_8y6ur")
-
-[node name="GridContainer" type="GridContainer" parent="Control"]
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 643.0
-
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.2028, 0.182, 0.26, 1)
 position = Vector2(575.75, 320.25)
 scale = Vector2(1152.5, 641.5)
 texture = SubResource("CanvasTexture_0hngy")
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.981111, 0.995895)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8y6ur")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 52.0
+offset_right = 863.0
+offset_bottom = 624.0
+scale = Vector2(1.9, 1.9)
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 8
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 326)
