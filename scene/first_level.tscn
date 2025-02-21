@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5072y1i6qemn"]
+[gd_scene load_steps=2 format=3 uid="uid://cwx6is5ta08xi"]
 
-[ext_resource type="PackedScene" uid="uid://2ikkelklmfpt" path="res://scene/card.tscn" id="1_4d1qm"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_0hngy"]
 
 [node name="FirstLevel" type="Node2D"]
 
@@ -13,8 +13,10 @@ offset_bottom = 647.0
 [node name="GridContainer" type="GridContainer" parent="Control"]
 layout_mode = 0
 offset_right = 1152.0
-offset_bottom = 652.0
+offset_bottom = 643.0
 
-[node name="Card" parent="Control/GridContainer" instance=ExtResource("1_4d1qm")]
-position = Vector2(474, 289)
-tilenumber = 9
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.2028, 0.182, 0.26, 1)
+position = Vector2(575.75, 320.25)
+scale = Vector2(1152.5, 641.5)
+texture = SubResource("CanvasTexture_0hngy")
