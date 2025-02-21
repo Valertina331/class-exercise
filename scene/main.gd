@@ -13,10 +13,20 @@ func generate_grid():
 		grid.append([])
 		for col in range(GRID_SIZE):
 			var tile = TILE_SCENE.instantiate()
-			tile.set_type(randi() % 5)  # 随机类型
+			tile.set_type(randi() % 5)  
 			tile.connect("pressed", Callable(self, "_on_tile_pressed").bind(row, col))
 			grid[row].append(tile)
 			$GridContainer.add_child(tile)
 
 func _on_tile_pressed(row, col):
 	print("Clicked tile at: ", row, col)
+	
+	
+func swap_tiles(row1, col1, row2, col2):
+	var temp = grid[row1][col1]
+	grid[row1][col1] = grid[row2][col2]
+	grid[row2][col2] = temp
+	var pos1 = grid[row1][col1].position
+	var pos2 = grid[row2][col2].position
+	grid[row1][col1].position = pos2
+	grid[row2][col2].position = pos1
