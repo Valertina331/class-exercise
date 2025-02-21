@@ -118,7 +118,10 @@ animations = [{
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_bjkk3")
+tilenumber = 12
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_1mq1u")
-frame = 1
+frame = 5

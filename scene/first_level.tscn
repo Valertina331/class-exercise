@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://by74dm72t5xo"]
+[gd_scene load_steps=2 format=3 uid="uid://c5072y1i6qemn"]
+
+[ext_resource type="PackedScene" uid="uid://2ikkelklmfpt" path="res://scene/card.tscn" id="1_4d1qm"]
 
 [node name="FirstLevel" type="Node2D"]
 
@@ -12,3 +14,7 @@ offset_bottom = 647.0
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 652.0
+
+[node name="Card" parent="Control/GridContainer" instance=ExtResource("1_4d1qm")]
+position = Vector2(474, 289)
+tilenumber = 11
