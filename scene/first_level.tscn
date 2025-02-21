@@ -17,4 +17,4 @@ offset_bottom = 652.0
 
 [node name="Card" parent="Control/GridContainer" instance=ExtResource("1_4d1qm")]
 position = Vector2(474, 289)
-tilenumber = 11
+tilenumber = 9

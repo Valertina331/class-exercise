@@ -1,7 +1,12 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://c1pq0ygfl084f"]
 
 [ext_resource type="Script" path="res://scene/control.gd" id="1_wywmi"]
 
+=======
+[gd_scene load_steps=2 format=3 uid="uid://cwx6is5ta08xi"]
+
+>>>>>>> Stashed changes
 [sub_resource type="CanvasTexture" id="CanvasTexture_0hngy"]
 
 [node name="FirstLevel" type="Node2D"]
@@ -11,7 +16,10 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 647.0
+<<<<<<< Updated upstream
 script = ExtResource("1_wywmi")
+=======
+>>>>>>> Stashed changes
 
 [node name="GridContainer" type="GridContainer" parent="Control"]
 layout_mode = 0
