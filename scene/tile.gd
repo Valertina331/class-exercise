@@ -15,5 +15,5 @@ func _ready():
 
 
 func _on_button_pressed():
-	print("poop")
+	print("This tile frame icon is #:" + str(tilenumber))
 	emit_signal("pressed")
