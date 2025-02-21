@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwx6is5ta08xi"]
+[gd_scene load_steps=3 format=3 uid="uid://c1pq0ygfl084f"]
+
+[ext_resource type="Script" path="res://scene/control.gd" id="1_wywmi"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_0hngy"]
 
@@ -9,6 +11,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 647.0
+script = ExtResource("1_wywmi")
 
 [node name="GridContainer" type="GridContainer" parent="Control"]
 layout_mode = 0
