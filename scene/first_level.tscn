@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5072y1i6qemn"]
-
-[sub_resource type="TileSet" id="TileSet_bmeg3"]
+[gd_scene format=3 uid="uid://by74dm72t5xo"]
 
 [node name="FirstLevel" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_bmeg3")
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 652.0
