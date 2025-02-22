@@ -14,8 +14,6 @@ func _ready():
 	tilenumber = randi_range(0,14)
 	animated_sprite_2d.frame = tilenumber
 	
-
-
 func _on_button_pressed():
 	print("This tile frame icon is #:" + str(tilenumber))
 	emit_signal("pressed")
@@ -27,7 +25,6 @@ func set_tile_position(x, y):
 #tile dropping animation
 func move_tween(target_x, target_y):
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(target_x, target_y), 0.3) \
-		 .set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", Vector2(target_x, target_y), 0.3).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	self.position = Vector2(target_x, target_y)

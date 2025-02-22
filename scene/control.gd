@@ -6,6 +6,7 @@ const TILE_SCENE = preload("res://scene/Tile.tscn")
 
 var grid = []
 var selected_tile = null #first tile selected
+var score = 0
 
 func _ready():
 	generate_grid()
@@ -23,7 +24,7 @@ func generate_grid():
 func tileplacement(x,y):
 	var tile = TILE_SCENE.instantiate()
 	tile.connect("pressed", Callable(self, "_on_tile_selected").bind(x, y))
-	
+
 	print("x is ", x,", y is ", y)
 	return tile
 
@@ -85,11 +86,19 @@ func check_match():
 				
 				#remove_tiles([[row, col], [row + 1, col], [row + 2, col]])
 				#return true
-				
+		
 	#if there is a match
 	if matched_tiles.size() > 0:
+		#win 1 point after matching
+		score += 1 
+		update_score_display()
+		#win the game when the score reaches 20
+		if score >= 20:
+			show_win_message()
+			
 		remove_tiles(matched_tiles)
 		return true 
+
 	return false
 
 func remove_tiles(tiles):
@@ -134,3 +143,49 @@ func refill_grid():
 				
 				tile.position = Vector2(row * TILE_SIZE, -TILE_SIZE)
 				tile.move_tween(row * TILE_SIZE, col * TILE_SIZE)
+
+func reshuffle_grid():
+	var all_tiles = []
+	
+	for x in range(GRID_SIZE):
+		for y in range(GRID_SIZE):
+			if grid[x][y] != null:
+				all_tiles.append(grid[x][y].tilenumber)
+
+	var shuffled = false
+	while not shuffled:
+		all_tiles.shuffle()
+		shuffled = true
+		
+		for x in range(GRID_SIZE):
+			for y in range(GRID_SIZE):
+				if x > 0 and all_tiles[x * GRID_SIZE + y] == all_tiles[(x - 1) * GRID_SIZE + y]:
+					shuffled = false
+				if y > 0 and all_tiles[x * GRID_SIZE + y] == all_tiles[x * GRID_SIZE + (y - 1)]:
+					shuffled = false
+
+	for x in range(GRID_SIZE):
+		for y in range(GRID_SIZE):
+			if grid[x][y] != null:
+				grid[x][y].tilenumber = all_tiles.pop_front() 
+				grid[x][y].animated_sprite_2d.frame = grid[x][y].tilenumber
+
+
+func _on_shuffle_button_pressed() -> void:
+	reshuffle_grid()
+
+func update_score_display():
+	$ScoreLabel.text = "Score: " + str(score) + " / 20"
+	
+func show_win_message():
+	var win_label = Label.new()
+	win_label.text = "You Win!"
+	win_label.add_theme_color_override("font_color", Color(1, 1, 0))
+	win_label.set_size(Vector2(200, 50))
+	win_label.set_position(Vector2(100, 200))
+	add_child(win_label)
+
+	#restart the game in 5 sec
+	await get_tree().create_timer(5.0).timeout
+	reshuffle_grid()
+	get_tree().reload_current_scene()
